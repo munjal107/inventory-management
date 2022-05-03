@@ -1,10 +1,8 @@
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.util.ArrayList;
-import java.util.Arrays;
+import model.Cards;
+import model.Cart;
+import model.Inventory;
+
 import java.util.List;
-import java.util.Scanner;
 
 public class Billing {
     public static void main(String[] args) {
@@ -13,7 +11,7 @@ public class Billing {
         // read inventory file
         String inventoryFileName = "src/inventory.csv";
         try{
-            System.out.println("Processing Inventory.csv file");
+            System.out.println("Processing model.Inventory.csv file");
             List<List<String>> inventoryRecords = new ReadCsvFiles().readFile(inventoryFileName);
             System.out.println(inventoryRecords);
 
@@ -25,7 +23,7 @@ public class Billing {
             // now we build cards dataset
             Cards cards = Cards.getInstance();
             cards.addCards(index, inventoryRecords);
-            System.out.println("done");
+            System.out.println("done Processing model.Inventory.csv file");
         }catch (Exception exception){
             System.out.println("Error->"+exception.getMessage());
         }
@@ -33,7 +31,15 @@ public class Billing {
         // read input file
         try {
             System.out.println("processing Input cart");
-            String cartFileName = "input.csv";
+            String cartFileName = "src/Input.csv";
+
+            List<List<String>> cartRecords = new ReadCsvFiles().readFile(cartFileName);
+
+            Cart cart = Cart.getInstance();
+            cart.buildCart(cartRecords);
+
+            // process cart to validate cart
+
 
 
         }catch (Exception exception){
