@@ -10,7 +10,8 @@ public class Inventory {
     public Map<String, InventoryItems> inventory;
 
     private Inventory(){
-        System.out.println("private constructor of inventory...");
+
+//        System.out.println("private constructor of inventory...");
     }
 
     public static Inventory getInstance(){
@@ -21,7 +22,7 @@ public class Inventory {
 
     public int buildInventory(List<List<String>> inventoryRecords){
 //        int index = 2;
-        System.out.println("building inventory...");
+//        System.out.println("building inventory...");
         this.inventory = new HashMap<>();
 
         int i =2;
@@ -32,7 +33,7 @@ public class Inventory {
             }
             List<String> stringList = inventoryRecords.get(i);
 
-            String itemName = stringList.get(0);
+            String itemName = stringList.get(0).strip().toLowerCase();
             String category = stringList.get(1);
             int qty = Integer.parseInt(stringList.get(2));
             double price = Double.parseDouble(stringList.get(3));

@@ -8,7 +8,8 @@ public class Cards {
     HashSet<Double> hashSet;
 
     private Cards(){
-        System.out.println("private constructor of cards...");
+
+//        System.out.println("private constructor of cards...");
     }
 
     public static Cards getInstance(){
@@ -39,9 +40,14 @@ public class Cards {
             index++;
         }
 
-        this.showCards();
+//        this.showCards();
 
 
+    }
+
+    public void addCard(Double cardNumber){
+        this.hashSet.add(cardNumber);
+//        System.out.println("Card added..");
     }
 
 
@@ -55,9 +61,5 @@ public class Cards {
         }
 
     }
-
-
-
-
 
 }
